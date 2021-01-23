@@ -1,12 +1,13 @@
 @echo off
 @cd /d "%~dp0"
-@set "ERRORLEVEL="
-@CMD /C EXIT 0
-@"%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system" >nul 2>&1
-@if NOT "%ERRORLEVEL%"=="0" (
-@powershell -Command Start-Process ""%0" "%1"" -Verb runAs 2>nul
-@exit
-)
+rem @set "ERRORLEVEL="
+rem @CMD /C EXIT 0
+rem @"%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system" >nul 2>&1
+rem @if NOT "%ERRORLEVEL%"=="0" (
+rem @powershell -Command Start-Process ""%0" "%1"" -Verb runAs 2>nul
+rem @exit
+rem )
+@echo "arg=%1"
 :--------------------------------------
 @TITLE Mesa3D system-wide deployment utility
 @echo Mesa3D system-wide deployment utility
