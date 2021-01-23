@@ -51,7 +51,6 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       shell: msys2 {0}
       run: |
-        go version
         pwd
         ls
         which 7z
