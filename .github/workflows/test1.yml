@@ -47,13 +47,16 @@ jobs:
         export DISPLAY=:99.0
         go test ./...
 
-    - name: Tests Windows
+    - name: Tests MSYS2
       if: ${{ matrix.os == 'windows-latest' }}
       shell: msys2 {0}
       run: |
         pwd
-        ls
         which 7z
+    - name: Tests Windows
+      if: ${{ matrix.os == 'windows-latest' }}
+      run: |
+        echo %PATH%
         #go test -tags ci ./...
 
     - name: Tests MacOS
