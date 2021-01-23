@@ -43,6 +43,7 @@
 @IF %mesainstalled%==1 echo 7. Remove system-wide deployments (uninstall);
 @IF %mesainstalled%==1 echo 8. Exit
 @IF %mesainstalled%==0 echo 6. Exit
+@if "%1" == "" (
 @set /p deploychoice=Enter choice:
 ) else (
 @set deploychoice=%1
