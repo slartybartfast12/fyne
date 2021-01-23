@@ -18,13 +18,6 @@ rem )
 @set mesainstalled=1
 @IF NOT EXIST "%windir%\System32\mesadrv.dll" IF NOT EXIST "%windir%\System32\graw.dll" IF NOT EXIST "%windir%\System32\osmesa.dll" set mesainstalled=0
 
-desktopgl
-osmesa
-rem graw
-
-echo All done
-exit
-
 function desktopgl {
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 echo Invalid choice. swr driver is only supported on X64/AMD64 systems.
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 pause
@@ -84,3 +77,9 @@ function graw {
 @echo graw framework deploy complete.
 }
 
+desktopgl
+osmesa
+rem graw
+
+echo All done
+exit
