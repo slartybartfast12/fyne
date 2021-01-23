@@ -55,6 +55,7 @@ jobs:
         which 7z
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
+      shell: pwsh
       run: |
         echo %PATH%
         #go test -tags ci ./...
