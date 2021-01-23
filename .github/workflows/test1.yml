@@ -19,6 +19,12 @@ jobs:
     - uses: actions/setup-go@v2
       with:
         go-version: ${{ matrix.go-version }}
+    - uses: msys2/setup-msys2@v2
+      if: ${{ runner.os == 'windows-latest' }}
+      with:
+        release: false
+        install: >-
+          p7zip
 
     - name: Get dependencies
       run: sudo apt-get update && sudo apt-get install golang gcc libgl1-mesa-dev libegl1-mesa-dev libgles2-mesa-dev libx11-dev xorg-dev
@@ -43,10 +49,12 @@ jobs:
 
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
+      shell: msys2 {0}
       run: |
         go version
         pwd
         ls
+        which 7z
         #go test -tags ci ./...
 
     - name: Tests MacOS
