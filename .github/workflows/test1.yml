@@ -63,7 +63,7 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
       run: |
-        $Env:Path
+        go test ./...
         #go test -tags ci ./...
 
     - name: Tests MacOS
