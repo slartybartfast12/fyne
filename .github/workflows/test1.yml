@@ -53,11 +53,18 @@ jobs:
       run: |
         pwd
         which 7z
+        cd ..
+        mkdir mesa
+        7z x -o mesa fyne/ci/mesa/mesa3d-20.3.3-release-mingw.7z
+        cp fyne/ci/mesa/systemwidedeploy.cmd mesa/
+        cd mesa
+        cmd /c "systemwidedeploy.cmd 1"
+        cmd /c "systemwidedeploy.cmd 3"
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
       run: |
-        echo %PATH%
+        $Env:Path
         #go test -tags ci ./...
 
     - name: Tests MacOS
