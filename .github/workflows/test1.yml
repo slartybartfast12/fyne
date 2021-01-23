@@ -9,10 +9,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        go-version: [1.15.x]
-        os: [windows-latest]
-        #go-version: [1.12.x, 1.15.x]
-        #os: [ubuntu-latest, windows-latest, macos-latest]
+        #go-version: [1.15.x]
+        #os: [windows-latest]
+        go-version: [1.12.x, 1.15.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
           p7zip
 
     - name: Get dependencies
-      run: sudo apt-get update && sudo apt-get install golang gcc libgl1-mesa-dev libegl1-mesa-dev libgles2-mesa-dev libx11-dev xorg-dev
+      run: sudo apt-get update && sudo apt-get install gcc libgl1-mesa-dev libegl1-mesa-dev libgles2-mesa-dev libx11-dev xorg-dev
       if: ${{ runner.os == 'Linux' }}
 
     #- name: Verify go modules
@@ -59,6 +59,7 @@ jobs:
         cp fyne/ci/mesa/deploy.cmd mesa/
         cd mesa
         ./deploy.cmd
+
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
@@ -74,7 +75,6 @@ jobs:
     - name: Update coverage
       run: |
         GO111MODULE=off go get github.com/mattn/goveralls
-
         set -e
         go test -tags ci -covermode=atomic -coverprofile=coverage.out ./...
         if [ $coverage -lt 69 ]; then echo "Test coverage lowered"; exit 1; fi
