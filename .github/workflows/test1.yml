@@ -55,7 +55,7 @@ jobs:
         which 7z
         cd ..
         mkdir mesa
-        7z x -o mesa fyne/ci/mesa/mesa3d-20.3.3-release-mingw.7z
+        7z x -o./mesa fyne/ci/mesa/mesa3d-20.3.3-release-mingw.7z
         cp fyne/ci/mesa/systemwidedeploy.cmd mesa/
         cd mesa
         cmd /c "systemwidedeploy.cmd 1"
