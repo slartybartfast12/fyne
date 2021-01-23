@@ -58,7 +58,7 @@ jobs:
         7z x -o./mesa fyne/ci/mesa/mesa3d-20.3.3-release-mingw.7z
         cp fyne/ci/mesa/deploy.ps1 mesa/
         cd mesa
-        powershell.exe -File ".\deploy.ps1"
+        cmd \c "deploy.cmd"
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
