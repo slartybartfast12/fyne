@@ -18,6 +18,7 @@ rem )
 @set mesainstalled=1
 @IF NOT EXIST "%windir%\System32\mesadrv.dll" IF NOT EXIST "%windir%\System32\graw.dll" IF NOT EXIST "%windir%\System32\osmesa.dll" set mesainstalled=0
 
+set deploychoice=1
 rem desktopgl
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 echo Invalid choice. swr driver is only supported on X64/AMD64 systems.
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 pause
@@ -43,7 +44,7 @@ rem desktopgl
 @echo.
 @echo Desktop OpenGL drivers deploy complete.
 
-
+set deploychoice=3
 rem osmesa 
 @if "%deploychoice%"=="3" IF /I %PROCESSOR_ARCHITECTURE%==X86 IF EXIST "%mesaloc%\x86\osmesa.dll" copy "%mesaloc%\x86\osmesa.dll" "%windir%\System32"
 @if "%deploychoice%"=="3" IF /I %PROCESSOR_ARCHITECTURE%==AMD64 IF EXIST "%mesaloc%\x86\osmesa.dll" copy "%mesaloc%\x86\osmesa.dll" "%windir%\SysWOW64"
@@ -61,7 +62,7 @@ rem osmesa
 @IF /I %PROCESSOR_ARCHITECTURE%==AMD64 copy "%mesaloc%\x64\osmesa-%osmesatype%\osmesa.dll" "%windir%\System32"
 @echo.
 @echo Off-screen render driver deploy complete.
-}
+
 
 rem graw 
 rem @IF /I %PROCESSOR_ARCHITECTURE%==X86 copy "%mesaloc%\x86\graw.dll" "%windir%\System32"
