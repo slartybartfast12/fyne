@@ -58,7 +58,7 @@ jobs:
         cd ..
         mkdir mesa
         mesapath=$(curl -sL https://github.com/pal1000/mesa-dist-win/releases/latest | grep -o "/pal1000..*mesa3d.*release-mingw.7z")
-        curl -sL https://github.com/${mesapath} -o /tmp/mesa3d.7z
+        curl -sL https://github.com/${mesapath} -o mesa3d.7z
         7z x -o./mesa mesa3d.7z
         cp fyne/ci/mesa/deploy.cmd mesa/
         cd mesa
