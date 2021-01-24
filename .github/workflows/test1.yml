@@ -27,8 +27,8 @@ jobs:
       if: ${{ runner.os == 'Windows' }}
       with:
         release: false
-    #    install: >-
-    #      p7zip
+        install: >-
+          p7zip
 
     - name: Get dependencies
       run: sudo apt-get update && sudo apt-get install gcc libgl1-mesa-dev libegl1-mesa-dev libgles2-mesa-dev libx11-dev xorg-dev
@@ -55,11 +55,11 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       shell: msys2 {0}
       run: |
-        pwd
-        which 7z
         cd ..
         mkdir mesa
-        7z x -o./mesa fyne/ci/mesa/mesa3d-20.3.3-release-mingw.7z
+        mesapath=$(curl -sL https://github.com/pal1000/mesa-dist-win/releases/latest | grep -o "/pal1000..*mesa3d.*release-mingw.7z")
+        curl -sL https://github.com/${mesapath} -o /tmp/mesa3d.7z
+        7z x -o./mesa mesa3d.7z
         cp fyne/ci/mesa/deploy.cmd mesa/
         cd mesa
         ./deploy.cmd
