@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         go-version: [1.15.x]
-        os: [linux-latest]
+        os: [ubuntu-latest]
         #go-version: [1.12.x, 1.15.x]
         #os: [ubuntu-latest, windows-latest, macos-latest]
 
