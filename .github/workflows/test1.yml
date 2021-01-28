@@ -69,15 +69,15 @@ jobs:
         ./deploy.cmd
         #./systemwidedeploy.cmd 1
         #./systemwidedeploy.cmd 3
-        echo $PATH
         export PATH=$PATH:/c/Go/bin
-        which gcc
+        echo $PATH
         which go
 
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
       run: |
+        echo %PATH%
         go test ./...
         #go test -tags ci ./...
 
