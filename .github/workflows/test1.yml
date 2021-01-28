@@ -27,6 +27,7 @@ jobs:
       if: ${{ runner.os == 'Windows' }}
       with:
         release: false
+        path-type: inherit
         install: >-
           p7zip
 
@@ -69,9 +70,6 @@ jobs:
         ./deploy.cmd
         #./systemwidedeploy.cmd 1
         #./systemwidedeploy.cmd 3
-        ls /c/Users/runneradmin/go/bin
-        ls /c/hostedtoolcache/windows/go/1.15.7/x64
-        export PATH=$PATH:/c/Users/runneradmin/go/bin
         echo $PATH
         which go
 
@@ -79,7 +77,6 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
       run: |
-        $Env:Path
         #go test ./...
         #go test -tags ci ./...
 
