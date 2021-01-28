@@ -70,6 +70,7 @@ jobs:
         #./systemwidedeploy.cmd 1
         #./systemwidedeploy.cmd 3
         echo $PATH
+        export PATH=$PATH:/c/Go/bin
         which gcc
         which go
 
