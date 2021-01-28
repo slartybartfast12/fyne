@@ -69,16 +69,16 @@ jobs:
         ./deploy.cmd
         #./systemwidedeploy.cmd 1
         #./systemwidedeploy.cmd 3
-        export PATH=$PATH:/c/Go/bin
+        #export PATH=$PATH:/c/Go/bin
         echo $PATH
-        which go
+        #which go
 
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
       run: |
         echo %PATH%
-        go test ./...
+        #go test ./...
         #go test -tags ci ./...
 
     - name: Tests MacOS
