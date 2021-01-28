@@ -57,7 +57,6 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       shell: msys2 {0}
       run: |
-        oldpwd=$(pwd)
         cd ..
         mkdir mesa
         # next two lines would download the latest, have locked it to 20.3.3 for now.
@@ -71,15 +70,12 @@ jobs:
         ./deploy.cmd
         #./systemwidedeploy.cmd 1
         #./systemwidedeploy.cmd 3
-        which go
-        cd $oldpwd
-        go test ./...
 
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
       shell: pwsh
       run: |
-        #go test ./...
+        go test ./...
         #go test -tags ci ./...
 
     - name: Tests MacOS
