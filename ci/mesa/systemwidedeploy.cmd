@@ -57,7 +57,7 @@
 @echo Invaild entry
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-@IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
+REM @IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
 @IF NOT "%1"=="" GOTO exit
 
 :desktopgl
@@ -93,7 +93,7 @@
 @echo Desktop OpenGL drivers deploy complete.
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-@IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
+REM @IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
 @IF NOT "%1"=="" GOTO exit
 
 :osmesa
@@ -120,7 +120,7 @@
 @echo Off-screen render driver deploy complete.
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-@IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
+REM @IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
 @IF NOT "%1"=="" GOTO exit
 
 :graw
@@ -137,7 +137,7 @@
 @echo graw framework deploy complete.
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-@IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
+REM @IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
 @IF NOT "%1"=="" GOTO exit
 
 :update
@@ -191,7 +191,7 @@
 @echo Update complete.
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-@IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
+REM @IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
 @IF NOT "%1"=="" GOTO exit
 
 :uninstall
@@ -217,7 +217,7 @@
 @echo Uninstall complete.
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-@IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
+REM @IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
 @IF NOT "%1"=="" GOTO exit
 
 :bye
@@ -225,4 +225,5 @@
 @IF "%1"=="" pause
 
 :exit
-@IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
+echo The End.
+REM @IF NOT "%1"=="" CHOICE /N /T %deployresult% /C y /D y >nul 2>&1
