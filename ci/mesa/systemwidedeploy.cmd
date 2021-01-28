@@ -10,7 +10,7 @@
 )
 :--------------------------------------
 @IF "%*"=="" TITLE Mesa3D system-wide deployment utility
-@set deployresult=1
+@set deployresult=0
 @IF "%*"=="" echo -------------------------------------
 @IF "%*"=="" echo Mesa3D system-wide deployment utility
 @IF "%*"=="" echo -------------------------------------
