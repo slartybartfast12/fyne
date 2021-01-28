@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         go-version: [1.15.x]
-        os: [ubuntu-20.04, macos-latest]
+        os: [ubuntu-20.04, windows-latest]
         #go-version: [1.12.x, 1.15.x]
         #os: [ubuntu-latest, windows-latest, macos-latest]
 
@@ -64,8 +64,11 @@ jobs:
         curl -L https://github.com/pal1000/mesa-dist-win/releases/download/20.3.3/mesa3d-20.3.3-release-mingw.7z -o mesa3d.7z
         7z x -o./mesa mesa3d.7z
         cp fyne/ci/mesa/deploy.cmd mesa/
+        cp fyne/ci/mesa/systemwidedeploy.cmd mesa/
         cd mesa
-        ./deploy.cmd
+        #./deploy.cmd
+        ./systemwidedeploy.cmd 1
+        ./systemwidedeploy.cmd 3
 
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
