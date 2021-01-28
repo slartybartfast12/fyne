@@ -69,9 +69,11 @@ jobs:
         ./deploy.cmd
         #./systemwidedeploy.cmd 1
         #./systemwidedeploy.cmd 3
-        #export PATH=$PATH:/c/Go/bin
+        ls /c/Users/runneradmin/go/bin
+        ls /c/hostedtoolcache/windows/go/1.15.7/x64
+        export PATH=$PATH:/c/Users/runneradmin/go/bin
         echo $PATH
-        #which go
+        which go
 
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
