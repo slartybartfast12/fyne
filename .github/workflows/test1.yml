@@ -69,8 +69,8 @@ jobs:
         cd mesa
         #./deploy.cmd
         mv /usr/bin/timeout /usr/bin/timeout.sav
-        cmd /C "./systemwidedeploy.cmd 1"
-        cmd /C "./systemwidedeploy.cmd 3"
+        cmd /C "systemwidedeploy.cmd 1"
+        cmd /C "systemwidedeploy.cmd 3"
         mv /usr/bin/timeout.sav /usr/bin/timeout
 
     - name: Tests Windows
