@@ -58,6 +58,7 @@ rem @echo off
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
 IF NOT "%1"=="" timeout %deployresult% 
+timeout --help
 @IF NOT "%1"=="" GOTO exit
 
 :desktopgl
