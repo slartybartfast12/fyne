@@ -57,19 +57,19 @@ rem @echo off
 @echo Invaild entry
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-IF NOT "%1"=="" timeout %deployresult% 
+rem IF NOT "%1"=="" timeout %deployresult% 
 @IF NOT "%1"=="" GOTO exit
 
 :desktopgl
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 echo Invalid choice. swr driver is only supported on X64/AMD64 systems.
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 IF "%1"=="" pause
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 IF "%1"=="" GOTO deploy
-if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT "%1"=="" timeout %deployresult% > nul
+rem if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT "%1"=="" timeout %deployresult% > nul
 @if "%deploychoice%"=="2" if /I NOT %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT "%1"=="" GOTO exit
 @if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%mesaloc%\x64\swr*.dll" echo Invalid choice. swr driver is not included in this Mesa3D release package.
 @if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%mesaloc%\x64\swr*.dll" IF "%1"=="" pause
 @if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%mesaloc%\x64\swr*.dll" IF "%1"=="" GOTO deploy
-if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%mesaloc%\x64\swr*.dll" IF NOT "%1"=="" timeout %deployresult% > nul
+rem if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%mesaloc%\x64\swr*.dll" IF NOT "%1"=="" timeout %deployresult% > nul
 @if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%mesaloc%\x64\swr*.dll" IF NOT "%1"=="" GOTO exit
 @IF /I %PROCESSOR_ARCHITECTURE%==X86 copy "%mesaloc%\x86\opengl32.dll" "%windir%\System32\mesadrv.dll"
 @IF /I %PROCESSOR_ARCHITECTURE%==AMD64 copy "%mesaloc%\x86\opengl32.dll" "%windir%\SysWOW64\mesadrv.dll"
@@ -93,8 +93,7 @@ if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%me
 @echo Desktop OpenGL drivers deploy complete.
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-IF NOT "%1"=="" timeout %deployresult% 
-timeout --help
+rem IF NOT "%1"=="" timeout %deployresult% 
 
 @IF NOT "%1"=="" GOTO exit
 
@@ -227,4 +226,4 @@ timeout --help
 @IF "%1"=="" pause
 
 :exit
-IF NOT "%1"=="" timeout %deployresult% > nul
+rem IF NOT "%1"=="" timeout %deployresult% > nul
