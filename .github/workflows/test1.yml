@@ -61,16 +61,16 @@ jobs:
         mkdir mesa
         # next two lines would download the latest, have locked it to 20.3.3 for now.
         #mesapath=$(curl -sL https://github.com/pal1000/mesa-dist-win/releases/latest | grep -o "/pal1000..*mesa3d.*release-mingw.7z")
-        #curl -L https://github.com/${mesapath} -o mesa3d.7z
-        curl -L https://github.com/pal1000/mesa-dist-win/releases/download/20.3.3/mesa3d-20.3.3-release-mingw.7z -o mesa3d.7z
+        #curl -sL https://github.com/${mesapath} -o mesa3d.7z
+        curl -sL https://github.com/pal1000/mesa-dist-win/releases/download/20.3.3/mesa3d-20.3.3-release-mingw.7z -o mesa3d.7z
         7z x -o./mesa mesa3d.7z
         cp fyne/ci/mesa/deploy.cmd mesa/
         cp fyne/ci/mesa/systemwidedeploy.cmd mesa/
         cd mesa
         #./deploy.cmd
         mv /usr/bin/timeout /usr/bin/timeout.sav
-        ./systemwidedeploy.cmd 1
-        ./systemwidedeploy.cmd 3
+        cmd /C "./systemwidedeploy.cmd 1"
+        cmd /C "./systemwidedeploy.cmd 3"
         mv /usr/bin/timeout.sav /usr/bin/timeout
 
     - name: Tests Windows
