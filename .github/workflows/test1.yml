@@ -68,8 +68,10 @@ jobs:
         cp fyne/ci/mesa/systemwidedeploy.cmd mesa/
         cd mesa
         #./deploy.cmd
-        cmd /c ./systemwidedeploy.cmd 1
-        cmd /c ./systemwidedeploy.cmd 3
+        mv /usr/bin/timeout /usr/bin/timeout.sav
+        ./systemwidedeploy.cmd 1
+        ./systemwidedeploy.cmd 3
+        mv /usr/bin/timeout.sav /usr/bin/timeout
 
     - name: Tests Windows
       if: ${{ matrix.os == 'windows-latest' }}
