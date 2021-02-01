@@ -78,7 +78,7 @@ jobs:
       shell: pwsh
       run: |
         cd D:\a\fyne\mesa
-        systemwidedeploy.cmd 1
+        cmd.exe \C "systemwidedeploy.cmd 1"
         #go test ./...
         #go test -tags ci ./...
 
