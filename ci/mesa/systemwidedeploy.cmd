@@ -58,7 +58,6 @@ rem @echo off
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
 IF NOT "%1"=="" timeout %deployresult% 
-timeout --help
 @IF NOT "%1"=="" GOTO exit
 
 :desktopgl
@@ -95,6 +94,8 @@ if "%deploychoice%"=="2" if /I %PROCESSOR_ARCHITECTURE%==AMD64 IF NOT EXIST "%me
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
 IF NOT "%1"=="" timeout %deployresult% 
+timeout --help
+
 @IF NOT "%1"=="" GOTO exit
 
 :osmesa
