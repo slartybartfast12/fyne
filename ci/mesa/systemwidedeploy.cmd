@@ -1,4 +1,4 @@
-@echo off
+rem @echo off
 @cd /d "%~dp0"
 @set "ERRORLEVEL="
 @CMD /C EXIT 0
@@ -57,7 +57,7 @@
 @echo Invaild entry
 @IF "%1"=="" pause
 @IF "%1"=="" GOTO deploy
-@IF NOT "%1"=="" timeout %deployresult% > nul
+IF NOT "%1"=="" timeout %deployresult% 
 @IF NOT "%1"=="" GOTO exit
 
 :desktopgl
@@ -225,4 +225,4 @@
 @IF "%1"=="" pause
 
 :exit
-@IF NOT "%1"=="" timeout %deployresult% > nul
+IF NOT "%1"=="" timeout %deployresult% > nul
